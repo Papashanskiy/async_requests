@@ -6,7 +6,7 @@ import aiohttp
 async def get_uuid(session):
     url = 'http://127.0.0.1:8000/api/random-uuid'
 
-    async with session.get(url) as response:
+    async with sema, session.get(url) as response:
         return await response.json()
 
 
